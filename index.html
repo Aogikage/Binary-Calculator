@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Calculator</title>
+    <style>
+        /* Embedded CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="button-container">
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="setOperation('+')">+</button>
+            <button onclick="setOperation('-')">-</button>
+            <button onclick="setOperation('*')">*</button>
+            <button onclick="setOperation('/')">/</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="clearDisplay()">C</button>
+        </div>
+    </div>
+    <script>
+        // Embedded JavaScript
+        let display = document.getElementById('display');
+        let operation = '';
+        let operand1 = '';
+        let operand2 = '';
+        
+        function appendNumber(number) {
+            display.value += number;
+        }
+
+        function setOperation(op) {
+            operand1 = display.value;
+            operation = op;
+            display.value = '';
+        }
+
+        function calculate() {
+            operand2 = display.value;
+            let result;
+            const num1 = parseInt(operand1, 2);
+            const num2 = parseInt(operand2, 2);
+            
+            switch (operation) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+            }
+            
+            display.value = result.toString(2); // convert result back to binary
+        }
+
+        function clearDisplay() {
+            display.value = '';
+            operand1 = '';
+            operand2 = '';
+            operation = '';
+        }
+    </script>
+</body>
+</html>
