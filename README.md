@@ -1,3 +1,7 @@
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![HTML](https://img.shields.io/badge/-HTML-orange?logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/-CSS-blue?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-yellow?logo=javascript&logoColor=white)
 # Binary Calculator
 
 This is a simple **Binary Calculator** built using **HTML** with embedded **CSS** and **JavaScript**. The calculator allows users to perform basic arithmetic operations (addition, subtraction, multiplication, division) on binary numbers.
